@@ -1,13 +1,13 @@
 # NerdLogic Website
 
-Production Next.js implementation of the NerdLogic homepage design.
+Digital product studio marketing site — Next.js 16 + Tailwind + GSAP.
 
 ## Stack
 
 - Next.js 16 (App Router)
 - TypeScript
 - Tailwind CSS 4
-- Framer Motion
+- GSAP (ScrollTrigger)
 - Lucide Icons
 
 ## Getting started
@@ -21,20 +21,23 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Scripts
 
-- `npm run dev` — local development
-- `npm run build` — production build
-- `npm run start` — serve production build
-- `npm run lint` — ESLint
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Local development |
+| `npm run build` | Production build |
+| `npm run start` | Serve production build |
+| `npm run lint` | ESLint |
 
 ## Project structure
 
 ```text
 src/
-  app/                 # App Router entry
+  app/                 # App Router
   components/
     sections/          # Homepage sections
     ui/                # Shared UI primitives
   data/                # Content constants
-  lib/                 # Utilities
-public/assets/         # Optimized brand assets
+  hooks/               # Client hooks
+  lib/                 # Utilities (cn, gsap)
+public/assets/         # Optimized images
 ```

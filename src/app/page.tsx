@@ -1,3 +1,4 @@
+import { AmbientBackground } from "@/components/ambient-background";
 import { Navbar } from "@/components/navbar";
 import { CTA } from "@/components/sections/cta";
 import { Features } from "@/components/sections/features";
@@ -11,15 +12,18 @@ import { Services } from "@/components/sections/services";
 export default function HomePage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-black">
-      <Navbar />
-      <Hero />
-      <Mission />
-      <Features />
-      <Services />
-      <Products />
-      <Process />
-      <CTA />
-      <Footer />
+      <AmbientBackground />
+      <div className="relative z-10">
+        <Navbar />
+        <Hero />
+        <Mission />
+        <Features />
+        <Services />
+        <Products />
+        <Process />
+        <CTA />
+        <Footer />
+      </div>
     </main>
   );
 }

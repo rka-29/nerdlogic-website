@@ -21,14 +21,13 @@
 # misc
 .DS_Store
 *.pem
-
-# debug
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files
+# env
 .env*
 !.env.example
 
@@ -39,9 +38,18 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# local tooling / design sources
+# local Python / tooling
 .venv/
+__pycache__/
+*.pyc
+.agents/
+skills-lock.json
+AGENTS.md
+CLAUDE.md
+
+# design source dumps (local only)
 design-refs/
 design-assets/
 design-source.pdf
 design-source.svg
+*.pdf

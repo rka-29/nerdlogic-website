@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import { Reveal } from "@/components/ui/reveal";
+import { Reveal, Stagger } from "@/components/ui/reveal";
 import { SectionBadge } from "@/components/ui/section-badge";
+import { SurfaceCard } from "@/components/ui/surface-card";
 import { products, type ProductStatus } from "@/data/site";
 import { cn } from "@/lib/utils";
 
@@ -15,11 +16,11 @@ export function Products() {
   return (
     <section id="products" className="relative overflow-hidden pb-20 pt-8 lg:pb-28">
       <div
-        className="pointer-events-none absolute -right-[10%] top-[20%] h-[520px] w-[520px] rounded-full bg-[#1928DD]/25 blur-[140px]"
+        className="pointer-events-none absolute -right-[10%] top-[20%] h-[520px] w-[520px] rounded-full bg-[#1928DD]/15 blur-[140px]"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -left-[15%] bottom-[10%] h-[420px] w-[420px] rounded-full bg-[#0117FF]/20 blur-[130px]"
+        className="pointer-events-none absolute -left-[15%] bottom-[10%] h-[420px] w-[420px] rounded-full bg-[#0117FF]/12 blur-[130px]"
         aria-hidden="true"
       />
 
@@ -35,7 +36,7 @@ export function Products() {
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="mt-4 text-[16px] text-[#999999] sm:text-[18px]">
+              <p className="mt-4 text-[16px] text-muted sm:text-[18px]">
                 Alongside client work, we ship in-house apps.
               </p>
             </Reveal>
@@ -44,7 +45,7 @@ export function Products() {
           <Reveal delay={0.12}>
             <Link
               href="#products"
-              className="inline-flex items-center gap-2 text-[18px] text-white transition-opacity hover:opacity-70"
+              className="link-quiet inline-flex min-h-[44px] items-center gap-2 text-[18px] text-white"
             >
               Explore All Products
               <ArrowRight className="size-4" aria-hidden="true" />
@@ -52,59 +53,62 @@ export function Products() {
           </Reveal>
         </div>
 
-        <div className="mt-10 flex flex-col gap-[31px]">
-          {products.map((product, index) => (
-            <Reveal key={product.name} delay={index * 0.08}>
-              <article className="relative overflow-hidden rounded-[70px] border border-white/10 bg-white/[0.1] p-8 sm:p-10 lg:min-h-[339px] lg:p-12">
-                <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
-                  <div>
-                    <div className="flex flex-wrap items-center gap-3">
-                      <h3 className="text-[23px] font-semibold tracking-[-0.02em] text-white">
-                        {product.name}
-                      </h3>
-                      <span
-                        className={cn(
-                          "inline-flex h-[35px] items-center rounded-full px-4 text-[15px] font-medium",
-                          statusStyles[product.status],
-                        )}
-                      >
-                        {product.statusLabel}
-                      </span>
-                    </div>
-
-                    <p className="mt-5 max-w-[620px] text-[16px] leading-relaxed text-[#999999] sm:text-[18px]">
-                      {product.description}
-                    </p>
-
-                    <div className="mt-6 flex flex-wrap gap-3">
-                      {product.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-flex h-[35px] items-center rounded-full border border-white/20 px-4 text-[15px] text-white"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <Link
-                      href={product.href}
-                      className="mt-8 inline-flex items-center gap-2 text-[18px] text-white transition-opacity hover:opacity-70"
+        <Stagger className="mt-10 flex flex-col gap-[31px]" stagger={0.12}>
+          {products.map((product) => (
+            <SurfaceCard
+              key={product.name}
+              data-stagger-item
+              tone="soft"
+              className="rounded-[70px] p-8 sm:p-10 lg:min-h-[339px] lg:p-12"
+            >
+              <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
+                <div>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h3 className="text-[23px] font-semibold tracking-[-0.02em] text-white">
+                      {product.name}
+                    </h3>
+                    <span
+                      className={cn(
+                        "inline-flex h-[35px] items-center rounded-full px-4 text-[15px] font-medium",
+                        statusStyles[product.status],
+                      )}
                     >
-                      Learn More
-                      <ArrowUpRight className="size-4" aria-hidden="true" />
-                    </Link>
+                      {product.statusLabel}
+                    </span>
                   </div>
 
-                  <div
-                    className="aspect-[4/3] w-full rounded-[40px] bg-[#4E4E4E]/70 sm:aspect-[5/4] lg:aspect-auto lg:h-[255px]"
-                    aria-hidden="true"
-                  />
+                  <p className="mt-5 max-w-[620px] text-[16px] leading-relaxed text-muted sm:text-[18px]">
+                    {product.description}
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    {product.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="inline-flex h-[35px] items-center rounded-full border border-white/15 bg-white/[0.03] px-4 text-[15px] text-white/90"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Link
+                    href={product.href}
+                    className="mt-8 inline-flex min-h-[44px] items-center gap-2 text-[18px] text-white transition-all duration-200 hover:gap-3"
+                  >
+                    Learn More
+                    <ArrowUpRight className="size-4" aria-hidden="true" />
+                  </Link>
                 </div>
-              </article>
-            </Reveal>
+
+                <div
+                  className="aspect-[4/3] w-full rounded-[40px] border border-white/5 bg-gradient-to-br from-white/[0.08] to-white/[0.02] sm:aspect-[5/4] lg:aspect-auto lg:h-[255px]"
+                  aria-hidden="true"
+                />
+              </div>
+            </SurfaceCard>
           ))}
-        </div>
+        </Stagger>
       </Container>
     </section>
   );
