@@ -40,9 +40,9 @@ export function Reveal({
         {
           autoAlpha: 1,
           y: 0,
-          duration: 0.45,
+          duration: 0.5,
           delay,
-          ease: "power2.out",
+          ease: "power3.out",
           immediateRender: false,
           scrollTrigger: {
             trigger: el,
@@ -103,9 +103,9 @@ export function Stagger({
           autoAlpha: 1,
           y: 0,
           scale: 1,
-          duration: 0.42,
+          duration: 0.48,
           stagger: { each: stagger, from: "start" },
-          ease: "power2.out",
+          ease: "power3.out",
           immediateRender: false,
           scrollTrigger: {
             trigger: root,

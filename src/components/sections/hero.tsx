@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { Magnetic } from "@/components/ui/magnetic";
 import { SectionBadge } from "@/components/ui/section-badge";
 import { gsap, registerGsap } from "@/lib/gsap";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
@@ -102,14 +103,19 @@ export function Hero() {
           technology into digital solutions designed to help you grow.
         </p>
 
-        <div
+          <div
           data-hero="cta"
           className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
         >
-          <Button href="/contact" variant="primary">
-            Get Started
-            <ArrowRight className="size-5 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
-          </Button>
+          <Magnetic>
+            <Button href="/contact" variant="primary" className="min-w-[180px]">
+              Get Started
+              <ArrowRight
+                className="size-5 transition-transform duration-200 group-hover:translate-x-0.5"
+                aria-hidden="true"
+              />
+            </Button>
+          </Magnetic>
           <Button href="/products" variant="secondary">
             <Play className="size-4 fill-white" aria-hidden="true" />
             View Our Work
