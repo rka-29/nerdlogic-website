@@ -6,7 +6,7 @@ type LogoProps = {
   href?: string;
 };
 
-export function Logo({ className, href = "#home" }: LogoProps) {
+export function Logo({ className, href = "/" }: LogoProps) {
   return (
     <Link
       href={href}

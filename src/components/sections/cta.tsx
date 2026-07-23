@@ -8,7 +8,21 @@ import { SectionBadge } from "@/components/ui/section-badge";
 import { gsap, registerGsap } from "@/lib/gsap";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
-export function CTA() {
+type CTAProps = {
+  badge?: string;
+  title?: string;
+  description?: string;
+  ctaLabel?: string;
+  href?: string;
+};
+
+export function CTA({
+  badge = "GET IN TOUCH",
+  title = "Ready to Start Your Project?",
+  description = "Let's discuss your ideas and turn them into reality. Contact us today for a free consultation.",
+  ctaLabel = "Contact Us",
+  href = "/contact",
+}: CTAProps) {
   const shellRef = useRef<HTMLDivElement | null>(null);
   const reducedMotion = usePrefersReducedMotion();
 
@@ -27,10 +41,12 @@ export function CTA() {
           scale: 1,
           duration: 0.55,
           ease: "power2.out",
+          immediateRender: false,
           scrollTrigger: {
             trigger: shell,
             start: "top 88%",
             toggleActions: "play none none none",
+            once: true,
           },
         },
       );
@@ -40,10 +56,10 @@ export function CTA() {
   }, [reducedMotion]);
 
   return (
-    <section id="contact" className="relative pb-8 pt-10 lg:pb-10 lg:pt-16">
+    <section className="relative pb-8 pt-10 lg:pb-10 lg:pt-16">
       <Container>
         <Reveal>
-          <SectionBadge label="GET IN TOUCH" className="mb-8" />
+          <SectionBadge label={badge} className="mb-8" />
         </Reveal>
 
         <div
@@ -56,15 +72,14 @@ export function CTA() {
           />
           <div className="relative z-10 mx-auto max-w-[820px]">
             <h2 className="text-[32px] font-semibold tracking-[-0.03em] text-white sm:text-[40px] lg:text-[45px]">
-              Ready to Start Your Project?
+              {title}
             </h2>
-            <p className="mx-auto mt-4 max-w-[700px] text-[16px] leading-relaxed text-white/90 sm:text-[18px]">
-              Let&apos;s discuss your ideas and turn them into reality. Contact
-              us today for a free consultation.
+            <p className="mx-auto mt-4 max-w-[700px] whitespace-pre-line text-[16px] leading-relaxed text-white/90 sm:text-[18px]">
+              {description}
             </p>
             <div className="mt-8 flex justify-center">
-              <Button href="mailto:hello@nerdlogic.io" variant="primary">
-                Contact Us
+              <Button href={href} variant="primary">
+                {ctaLabel}
               </Button>
             </div>
           </div>

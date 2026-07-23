@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SiteShell } from "@/components/site-shell";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,9 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NerdLogic | Digital Product Studio",
+  title: {
+    default: "NerdLogic | Digital Product Studio",
+    template: "%s | NerdLogic",
+  },
   description:
-    "NerdLogic is a digital product studio building fintech, AI, and native mobile experiences that work smarter.",
+    "NerdLogic is a Bahrain-based digital product studio building fintech, AI, and native mobile experiences that work smarter.",
 };
 
 export default function RootLayout({
@@ -28,7 +32,9 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-black text-white">{children}</body>
+      <body className="min-h-full bg-black text-white">
+        <SiteShell>{children}</SiteShell>
+      </body>
     </html>
   );
 }

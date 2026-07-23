@@ -28,7 +28,7 @@ export function Products() {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-[720px]">
             <Reveal>
-              <SectionBadge label="PRODUCTS" />
+              <SectionBadge label="Featured Products" />
             </Reveal>
             <Reveal delay={0.06}>
               <h2 className="mt-6 text-[32px] font-semibold leading-[1.15] tracking-[-0.03em] text-white sm:text-[40px] lg:text-[45px]">
@@ -44,7 +44,7 @@ export function Products() {
 
           <Reveal delay={0.12}>
             <Link
-              href="#products"
+              href="/products"
               className="link-quiet inline-flex min-h-[44px] items-center gap-2 text-[18px] text-white"
             >
               Explore All Products

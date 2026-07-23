@@ -1,6 +1,6 @@
 # NerdLogic Website
 
-Digital product studio marketing site — Next.js 16 + Tailwind + GSAP.
+Digital product studio marketing site built with Next.js 16, Tailwind, and GSAP.
 
 ## Stack
 

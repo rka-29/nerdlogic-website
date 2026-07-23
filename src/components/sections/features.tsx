@@ -12,7 +12,11 @@ const glowClass: Record<(typeof features)[number]["glow"], string> = {
   white: "bg-white/20",
 };
 
-export function Features() {
+type FeaturesProps = {
+  showHeader?: boolean;
+};
+
+export function Features({ showHeader = true }: FeaturesProps) {
   return (
     <section className="relative overflow-hidden pb-20 pt-6 lg:pb-28">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -27,11 +31,18 @@ export function Features() {
       </div>
 
       <Container className="relative z-10">
-        <Reveal>
-          <SectionBadge label="Why Choose Us" />
-        </Reveal>
+        {showHeader ? (
+          <Reveal>
+            <SectionBadge label="Why Choose Us" />
+          </Reveal>
+        ) : null}
 
-        <Stagger className="mt-8 grid grid-cols-1 gap-[21px] md:grid-cols-2 xl:grid-cols-3">
+        <Stagger
+          className={cn(
+            "grid grid-cols-1 gap-[21px] md:grid-cols-2 xl:grid-cols-3",
+            showHeader ? "mt-8" : "mt-8",
+          )}
+        >
           {features.map((feature) => {
             const Icon = feature.icon;
 

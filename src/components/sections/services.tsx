@@ -30,7 +30,7 @@ export function Services() {
 
           <Reveal delay={0.12}>
             <Link
-              href="#services"
+              href="/services"
               className="link-quiet inline-flex min-h-[44px] items-center gap-2 text-[18px] text-white"
             >
               Explore All Services

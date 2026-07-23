@@ -144,8 +144,14 @@ button {
 }
 
 .nav-link:hover::after,
-.nav-link:focus-visible::after {
+.nav-link:focus-visible::after,
+.nav-link-active::after {
   transform: scaleX(1);
+}
+
+.nav-link-active {
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .nav-link-compact {

@@ -106,11 +106,11 @@ export function Hero() {
           data-hero="cta"
           className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
         >
-          <Button href="#contact" variant="primary">
+          <Button href="/contact" variant="primary">
             Get Started
             <ArrowRight className="size-5 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
           </Button>
-          <Button href="#products" variant="secondary">
+          <Button href="/products" variant="secondary">
             <Play className="size-4 fill-white" aria-hidden="true" />
             View Our Work
           </Button>
