@@ -1,6 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef } from "react";
+import { BrandPattern } from "@/components/brand-pattern";
 import { gsap, registerGsap } from "@/lib/gsap";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
@@ -30,18 +31,16 @@ export function AmbientBackground() {
         yoyo: true,
         repeat: -1,
       });
-      gsap.to("[data-orb='c']", {
-        x: 40,
-        y: -70,
-        duration: 13,
+      gsap.to("[data-pattern='a']", {
+        y: 24,
+        duration: 14,
         ease: "sine.inOut",
         yoyo: true,
         repeat: -1,
       });
-      gsap.to("[data-orb='d']", {
-        scale: 1.25,
-        opacity: 0.55,
-        duration: 7,
+      gsap.to("[data-pattern='b']", {
+        y: -18,
+        duration: 12,
         ease: "sine.inOut",
         yoyo: true,
         repeat: -1,
@@ -60,21 +59,25 @@ export function AmbientBackground() {
       <div className="absolute inset-0 bg-black" />
       <div
         data-orb="a"
-        className="absolute -left-[10%] top-[8%] h-[42vw] max-h-[520px] w-[42vw] max-w-[520px] rounded-full bg-[#0117FF]/25 blur-[110px]"
+        className="absolute -left-[10%] top-[8%] h-[42vw] max-h-[520px] w-[42vw] max-w-[520px] rounded-full bg-[#0117FF]/20 blur-[110px]"
       />
       <div
         data-orb="b"
-        className="absolute -right-[8%] top-[28%] h-[38vw] max-h-[460px] w-[38vw] max-w-[460px] rounded-full bg-[#1928DD]/22 blur-[120px]"
+        className="absolute -right-[8%] top-[28%] h-[38vw] max-h-[460px] w-[38vw] max-w-[460px] rounded-full bg-[#1928DD]/18 blur-[120px]"
       />
       <div
-        data-orb="c"
-        className="absolute left-[20%] top-[62%] h-[34vw] max-h-[420px] w-[34vw] max-w-[420px] rounded-full bg-[#031671]/35 blur-[100px]"
-      />
+        data-pattern="a"
+        className="absolute -right-[12%] top-[12%] w-[min(560px,70vw)] opacity-[0.07] will-change-transform"
+      >
+        <BrandPattern variant="outline" />
+      </div>
       <div
-        data-orb="d"
-        className="absolute right-[18%] top-[78%] h-[28vw] max-h-[340px] w-[28vw] max-w-[340px] rounded-full bg-[#9CBFFF]/12 blur-[90px]"
-      />
-      <div className="ambient-grid absolute inset-0 opacity-[0.18]" />
+        data-pattern="b"
+        className="absolute -left-[16%] bottom-[8%] w-[min(640px,75vw)] opacity-[0.06] will-change-transform"
+      >
+        <BrandPattern variant="solid" />
+      </div>
+      <div className="ambient-grid absolute inset-0 opacity-[0.14]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.55)_70%,rgba(0,0,0,0.85)_100%)]" />
     </div>
   );

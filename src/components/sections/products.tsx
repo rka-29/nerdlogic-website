@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { BrandPattern } from "@/components/brand-pattern";
 import { Container } from "@/components/ui/container";
 import { Reveal, Stagger } from "@/components/ui/reveal";
 import { SectionBadge } from "@/components/ui/section-badge";
@@ -15,14 +16,16 @@ const statusStyles: Record<ProductStatus, string> = {
 export function Products() {
   return (
     <section id="products" className="relative overflow-hidden pb-20 pt-8 lg:pb-28">
-      <div
-        className="pointer-events-none absolute -right-[10%] top-[20%] h-[520px] w-[520px] rounded-full bg-[#1928DD]/15 blur-[140px]"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -left-[15%] bottom-[10%] h-[420px] w-[420px] rounded-full bg-[#0117FF]/12 blur-[130px]"
-        aria-hidden="true"
-      />
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <BrandPattern
+          variant="solid"
+          className="absolute -right-[18%] top-[8%] w-[min(640px,80vw)] opacity-[0.14]"
+        />
+        <BrandPattern
+          variant="outline"
+          className="absolute -left-[22%] bottom-[4%] w-[min(720px,90vw)] opacity-[0.18]"
+        />
+      </div>
 
       <Container className="relative z-10">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -31,7 +34,7 @@ export function Products() {
               <SectionBadge label="Featured Products" />
             </Reveal>
             <Reveal delay={0.06}>
-              <h2 className="mt-6 text-[32px] font-semibold leading-[1.15] tracking-[-0.03em] text-white sm:text-[40px] lg:text-[45px]">
+              <h2 className="font-display mt-6 text-[32px] font-semibold leading-[1.15] tracking-[-0.03em] text-white sm:text-[40px] lg:text-[45px]">
                 We also build our own products
               </h2>
             </Reveal>

@@ -1,0 +1,55 @@
+---
+description: NerdLogic brand system — typography, color, pattern, Coming Soon gate
+alwaysApply: true
+---
+
+# NerdLogic Brand System
+
+Source of truth: `docs/brand-guidelines.md` (ADH Brand Guideline Final - Blue).
+
+## Color (guideline p.3)
+
+| Token | HEX |
+|-------|-----|
+| Primary Blue | `#0066E6` (Pantone 285 C) |
+| Light Blue | `#6BB6FF` (Pantone 2905 C) |
+| Deep Blue | `#003DA5` (Pantone 293 C) |
+| Charcoal | `#2B2B2A` (Cool Gray 11 C) |
+| White | `#FFFFFF` |
+| Gradient | `#0066E6` → `#003DA5` → black |
+| Canvas | `#000000` |
+
+CSS: `--brand-primary`, `--brand-light`, `--brand-deep`, `--brand-charcoal`. Do **not** use purple/violet AI gradients.
+
+## Logo
+
+- Mark: `src/components/logo-mark.tsx` / `public/assets/nerdlogic-mark.svg`
+- UI: `src/components/logo.tsx`
+
+## Typography
+
+| Role | Font | CSS |
+|------|------|-----|
+| Headlines / logo | **Surgena** (`src/fonts/Surgena-SemiBold.ttf`) | `font-display`, `h1–h6` |
+| Body | **Mona Sans** (`src/fonts/MonaSansVF.woff2`) | default `body` |
+
+Mona Sans weights: Light `300`, Medium `500` (default), SemiBold `600`.
+
+Commercial note: Surgena demo is personal-use; buy Digitype webfont license before production launch.
+
+## Brand Pattern
+
+`BrandPattern` — `gradient` | `solid` | `outline` using Primary/Deep blues.
+
+## Coming Soon
+
+- Env: `COMING_SOON=true`
+- Aurora: `src/components/Aurora.jsx` with stops `#0066E6`, `#6BB6FF`, `#003DA5`
+- UI: `src/components/coming-soon.tsx`
+- Proxy: `src/proxy.ts`
+
+## Hard rules
+
+- No em dashes in copy
+- Prefer Lucide SVGs, never emoji as icons
+- Respect `prefers-reduced-motion`

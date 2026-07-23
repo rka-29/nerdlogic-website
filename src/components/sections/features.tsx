@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { BrandPattern } from "@/components/brand-pattern";
 import { Container } from "@/components/ui/container";
 import { Reveal, Stagger } from "@/components/ui/reveal";
 import { SectionBadge } from "@/components/ui/section-badge";
@@ -20,14 +20,11 @@ export function Features({ showHeader = true }: FeaturesProps) {
   return (
     <section className="relative overflow-hidden pb-20 pt-6 lg:pb-28">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <Image
-          src="/assets/features-glow.png"
-          alt=""
-          width={1710}
-          height={806}
-          className="absolute left-1/2 top-[-10%] w-[130%] max-w-none -translate-x-1/2 opacity-45"
-          sizes="100vw"
+        <BrandPattern
+          variant="outline"
+          className="absolute left-1/2 top-[-8%] w-[min(980px,130vw)] -translate-x-1/2 opacity-[0.22]"
         />
+        <div className="absolute left-1/2 top-[10%] h-[280px] w-[520px] -translate-x-1/2 rounded-full bg-[#0117FF]/opacity-14 blur-[100px]" />
       </div>
 
       <Container className="relative z-10">
@@ -40,7 +37,7 @@ export function Features({ showHeader = true }: FeaturesProps) {
         <Stagger
           className={cn(
             "grid grid-cols-1 gap-[21px] md:grid-cols-2 xl:grid-cols-3",
-            showHeader ? "mt-8" : "mt-8",
+            "mt-8",
           )}
         >
           {features.map((feature) => {
@@ -66,7 +63,7 @@ export function Features({ showHeader = true }: FeaturesProps) {
                     strokeWidth={1.6}
                     aria-hidden="true"
                   />
-                  <h3 className="text-[23px] font-semibold tracking-[-0.02em] text-white">
+                  <h3 className="font-display text-[23px] font-semibold tracking-[-0.02em] text-white">
                     {feature.title}
                   </h3>
                   <p className="mt-2 text-[18px] text-muted">{feature.description}</p>

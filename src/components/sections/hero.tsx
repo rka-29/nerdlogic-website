@@ -1,8 +1,8 @@
 "use client";
 
 import { useLayoutEffect, useRef } from "react";
-import Image from "next/image";
 import { ArrowRight, Play } from "lucide-react";
+import { BrandPattern } from "@/components/brand-pattern";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Magnetic } from "@/components/ui/magnetic";
@@ -46,9 +46,9 @@ export function Hero() {
           "-=0.2",
         );
 
-      gsap.to("[data-hero='glow']", {
-        y: 28,
-        duration: 6,
+      gsap.to("[data-hero='pattern']", {
+        y: 18,
+        duration: 7,
         ease: "sine.inOut",
         yoyo: true,
         repeat: -1,
@@ -62,24 +62,19 @@ export function Hero() {
     <section
       ref={rootRef}
       id="home"
-      className="relative overflow-hidden pb-16 pt-[200px] sm:pt-[220px] lg:pb-24 lg:pt-[270px]"
+      className="relative overflow-hidden pb-10 pt-[200px] sm:pt-[220px] lg:pb-16 lg:pt-[270px]"
     >
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden="true"
-        data-hero="glow"
       >
-        <Image
-          src="/assets/hero-glow.png"
-          alt=""
-          width={1606}
-          height={866}
-          preload
-          className="absolute left-1/2 top-[-40px] w-[120%] max-w-none -translate-x-1/2 opacity-70 sm:top-[-80px] lg:w-[111%]"
-          sizes="100vw"
-        />
-        <div className="absolute left-[-10%] top-[8%] h-[420px] w-[420px] rounded-full bg-[#0117FF]/opacity-22 blur-[120px]" />
-        <div className="absolute right-[-5%] top-[18%] h-[360px] w-[360px] rounded-full bg-[#1928DD]/opacity-18 blur-[110px]" />
+        <div className="absolute left-1/2 top-[-12%] h-[420px] w-[680px] -translate-x-1/2 rounded-full bg-[#0117FF]/opacity-28 blur-[130px]" />
+        <div
+          data-hero="pattern"
+          className="absolute bottom-[-8%] left-1/2 w-[min(1100px,120vw)] -translate-x-1/2 opacity-95 will-change-transform"
+        >
+          <BrandPattern variant="gradient" />
+        </div>
       </div>
 
       <Container className="relative z-10 flex flex-col items-center text-center">
@@ -89,7 +84,7 @@ export function Hero() {
 
         <h1
           data-hero="title"
-          className="mt-8 max-w-[820px] text-[40px] font-semibold leading-[1.1] tracking-[-0.03em] text-white sm:text-[52px] lg:text-[60px]"
+          className="font-display mt-8 max-w-[820px] text-[40px] font-semibold leading-[1.1] tracking-[-0.03em] text-white sm:text-[52px] lg:text-[60px]"
         >
           Turning Ideas Into Digital
           <br className="hidden sm:block" /> Experiences
@@ -103,7 +98,7 @@ export function Hero() {
           technology into digital solutions designed to help you grow.
         </p>
 
-          <div
+        <div
           data-hero="cta"
           className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
         >
