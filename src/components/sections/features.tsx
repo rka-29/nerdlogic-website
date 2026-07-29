@@ -1,4 +1,3 @@
-import { BrandPattern } from "@/components/brand-pattern";
 import { Container } from "@/components/ui/container";
 import { Reveal, Stagger } from "@/components/ui/reveal";
 import { SectionBadge } from "@/components/ui/section-badge";
@@ -7,8 +6,8 @@ import { features } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 const glowClass: Record<(typeof features)[number]["glow"], string> = {
-  blue: "bg-[#0117FF]/30",
-  cyan: "bg-[#3B82F6]/25",
+  blue: "bg-[var(--brand-primary)]/30",
+  cyan: "bg-[var(--brand-light)]/25",
   white: "bg-white/20",
 };
 
@@ -20,11 +19,7 @@ export function Features({ showHeader = true }: FeaturesProps) {
   return (
     <section className="relative overflow-hidden pb-20 pt-6 lg:pb-28">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <BrandPattern
-          variant="outline"
-          className="absolute left-1/2 top-[-8%] w-[min(980px,130vw)] -translate-x-1/2 opacity-[0.22]"
-        />
-        <div className="absolute left-1/2 top-[10%] h-[280px] w-[520px] -translate-x-1/2 rounded-full bg-[#0117FF]/opacity-14 blur-[100px]" />
+        <div className="absolute left-1/2 top-[10%] h-[280px] w-[520px] -translate-x-1/2 rounded-full bg-[var(--brand-primary)]/10 blur-[100px]" />
       </div>
 
       <Container className="relative z-10">
@@ -48,7 +43,7 @@ export function Features({ showHeader = true }: FeaturesProps) {
                 key={feature.title}
                 data-stagger-item
                 tone="quiet"
-                className="rounded-[50px] p-8 sm:min-h-[219px] sm:p-9"
+                className="rounded-[36px] p-6 sm:min-h-[180px] sm:rounded-[40px] sm:p-7"
               >
                 <div
                   className={cn(

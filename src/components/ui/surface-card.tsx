@@ -29,7 +29,7 @@ export function SurfaceCard({
         "transition-[transform,background-color,border-color,box-shadow] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
         toneClass[tone],
         interactive &&
-          "will-change-transform hover:-translate-y-1.5 hover:shadow-[0_22px_60px_rgba(1,23,255,0.16)] active:translate-y-0 active:scale-[0.995]",
+          "will-change-transform hover:-translate-y-1.5 hover:shadow-[0_22px_60px_rgba(0, 102, 230,0.16)] active:translate-y-0 active:scale-[0.995]",
         className,
       )}
       {...props}
@@ -40,7 +40,7 @@ export function SurfaceCard({
           aria-hidden="true"
         >
           <span className="absolute -left-1/4 -top-1/3 h-2/3 w-1/2 rotate-12 bg-gradient-to-br from-white/10 to-transparent blur-2xl" />
-          <span className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#9CBFFF]/50 to-transparent" />
+          <span className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#6BB6FF]/50 to-transparent" />
         </span>
       ) : null}
       {children}

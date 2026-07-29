@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils";
 const buttonVariants = cva(
   [
     "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full",
-    "text-[18px] font-medium cursor-pointer",
+    "text-[16px] font-medium cursor-pointer",
     "transition-[transform,background-color,border-color,box-shadow,opacity] duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9CBFFF]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6BB6FF]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
     "disabled:pointer-events-none disabled:opacity-50",
     "active:scale-[0.98]",
   ].join(" "),
@@ -21,9 +21,9 @@ const buttonVariants = cva(
         ghost: "text-white hover:text-white/80",
       },
       size: {
-        default: "min-h-[48px] h-[54px] px-7",
-        sm: "min-h-[44px] h-[44px] px-5 text-[16px]",
-        nav: "min-h-[44px] h-[44px] px-5 text-[16px] lg:text-[18px]",
+        default: "min-h-[44px] h-[48px] px-6 text-[16px]",
+        sm: "min-h-[44px] h-[44px] px-5 text-[15px]",
+        nav: "min-h-[40px] h-[40px] px-4 text-[15px] lg:text-[16px]",
       },
     },
     defaultVariants: {

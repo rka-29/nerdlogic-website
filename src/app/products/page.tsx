@@ -27,7 +27,7 @@ export default function ProductsPage() {
             <SectionBadge label="What we  create" />
           </Reveal>
           <Reveal delay={0.06}>
-            <h2 className="mt-6 max-w-[820px] text-[32px] font-semibold leading-[1.15] tracking-[-0.03em] text-white sm:text-[40px] lg:text-[45px]">
+            <h2 className="font-display mt-6 max-w-[820px] text-[28px] font-normal leading-[1.15] tracking-[-0.03em] text-white sm:text-[36px] lg:text-[40px]">
               Products Built for the Future
             </h2>
           </Reveal>
@@ -67,7 +67,7 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="flex flex-1 flex-col p-7 sm:p-8">
-                  <p className="text-[13px] font-medium tracking-[0.08em] text-[#9CBFFF]">
+                  <p className="text-[13px] font-medium tracking-[0.08em] text-[var(--brand-light)]">
                     {product.category}
                   </p>
                   <h3 className="mt-2 text-[28px] font-semibold text-white sm:text-[32px]">
@@ -81,7 +81,7 @@ export default function ProductsPage() {
                     <Link
                       href={product.href}
                       aria-label={`Learn more about ${product.name}`}
-                      className="inline-flex size-12 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white shadow-[0_0_20px_rgba(1,23,255,0.35)] transition-transform duration-200 group-hover:scale-105"
+                      className="inline-flex size-12 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white shadow-[0_0_20px_rgba(0, 102, 230,0.35)] transition-transform duration-200 group-hover:scale-105"
                     >
                       <ArrowUpRight className="size-5" aria-hidden="true" />
                     </Link>

@@ -17,7 +17,7 @@ export default function YomnaPage() {
       <section className="relative overflow-hidden pb-12 pt-[180px] sm:pt-[210px] lg:pb-16 lg:pt-[240px]">
         <Container>
           <Reveal>
-            <p className="text-[18px] text-[#9CBFFF] sm:text-[20px]">
+            <p className="text-[18px] text-[var(--brand-light)] sm:text-[20px]">
               {yomnaDetail.headline}
             </p>
           </Reveal>
@@ -54,7 +54,7 @@ export default function YomnaPage() {
             <SectionBadge label={yomnaDetail.strategyBadge} />
           </Reveal>
           <Reveal delay={0.06}>
-            <h2 className="mt-6 max-w-[760px] text-[32px] font-semibold tracking-[-0.03em] text-white sm:text-[40px]">
+            <h2 className="font-display mt-6 max-w-[760px] text-[28px] font-normal tracking-[-0.03em] text-white sm:text-[36px]">
               {yomnaDetail.strategyTitle}
             </h2>
           </Reveal>
@@ -97,7 +97,7 @@ export default function YomnaPage() {
               interactive={false}
               className="rounded-[40px] p-8 sm:p-10"
             >
-              <p className="text-[14px] font-medium tracking-[0.06em] text-[#9CBFFF]">
+              <p className="text-[14px] font-medium tracking-[0.06em] text-[var(--brand-light)]">
                 Primary Goal
               </p>
               <h3 className="mt-3 text-[24px] font-semibold text-white sm:text-[28px]">
@@ -140,7 +140,7 @@ export default function YomnaPage() {
             <SectionBadge label="Capabilities" />
           </Reveal>
           <Reveal delay={0.06}>
-            <h2 className="mt-6 text-[32px] font-semibold text-white sm:text-[40px]">
+            <h2 className="font-display mt-6 text-[28px] font-normal text-white sm:text-[36px]">
               Key Features
             </h2>
           </Reveal>
@@ -186,7 +186,7 @@ export default function YomnaPage() {
             <SectionBadge label="Brand Identity" />
           </Reveal>
           <Reveal delay={0.06}>
-            <h2 className="mt-6 text-[32px] font-semibold text-white sm:text-[40px]">
+            <h2 className="font-display mt-6 text-[28px] font-normal text-white sm:text-[36px]">
               {yomnaDetail.designTitle}
             </h2>
           </Reveal>
@@ -204,7 +204,7 @@ export default function YomnaPage() {
             <SectionBadge label="Outcome" />
           </Reveal>
           <Reveal delay={0.06}>
-            <h2 className="mt-6 text-[32px] font-semibold text-white sm:text-[40px]">
+            <h2 className="font-display mt-6 text-[28px] font-normal text-white sm:text-[36px]">
               {yomnaDetail.impactTitle}
             </h2>
           </Reveal>

@@ -35,18 +35,20 @@ CSS: `--brand-primary`, `--brand-light`, `--brand-deep`, `--brand-charcoal`. Do 
 
 Mona Sans weights: Light `300`, Medium `500` (default), SemiBold `600`.
 
-Commercial note: Surgena demo is personal-use; buy Digitype webfont license before production launch.
+Commercial note: Surgena currently ships SemiBold only (weight 600). Buy Digitype Regular+webfont license before production launch.
 
 ## Brand Pattern
 
 `BrandPattern` — `gradient` | `solid` | `outline` using Primary/Deep blues.
 
-## Coming Soon
+## Coming Soon / Splash / Atmosphere
 
 - Env: `COMING_SOON=true`
-- Aurora: `src/components/Aurora.jsx` with stops `#0066E6`, `#6BB6FF`, `#003DA5`
-- UI: `src/components/coming-soon.tsx`
+- Shared wallpaper: `BrandAtmosphere` (`immersive` | `site`) — Aurora stops `#0066E6`, `#6BB6FF`, `#003DA5`; Particles on Coming Soon + home only
+- Coming Soon UI: `src/components/coming-soon.tsx`
+- Splash: `src/components/splash-screen.tsx` (Coming Soon + first-visit `SiteShell`)
 - Proxy: `src/proxy.ts`
+- Do **not** use purple/violet AI gradients from generic design tools — ADH blue only
 
 ## Hard rules
 

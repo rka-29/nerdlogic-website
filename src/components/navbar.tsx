@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -9,7 +9,15 @@ import { Button } from "@/components/ui/button";
 import { navLinks } from "@/data/site";
 import { cn } from "@/lib/utils";
 
-export function Navbar() {
+type NavbarProps = {
+  logoTargetRef?: RefObject<HTMLDivElement | null>;
+  logoVisible?: boolean;
+};
+
+export function Navbar({
+  logoTargetRef,
+  logoVisible = true,
+}: NavbarProps) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [compact, setCompact] = useState(false);
@@ -39,9 +47,13 @@ export function Navbar() {
   }, [open]);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.removeProperty("overflow");
+    }
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.removeProperty("overflow");
     };
   }, [open]);
 
@@ -49,7 +61,7 @@ export function Navbar() {
     <header
       className={cn(
         "pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center transition-[padding] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
-        compact ? "px-4 pt-3 sm:px-6 sm:pt-4" : "px-5 pt-5 sm:px-8 sm:pt-[52px] lg:px-[91px] lg:pt-[73px]",
+        compact ? "px-4 pt-3 sm:px-6 sm:pt-4" : "px-5 pt-4 sm:px-8 sm:pt-8 lg:px-12 lg:pt-10",
       )}
     >
       <div
@@ -68,13 +80,22 @@ export function Navbar() {
               : "h-[70px] px-4 sm:px-6 lg:px-8",
           )}
         >
-          <Logo
-            href="/"
-            className={cn(
-              "transition-transform duration-300",
-              compact && "scale-[0.9] [&_span]:text-[18px]",
-            )}
-          />
+          <div
+            ref={logoTargetRef}
+            className="inline-flex"
+            style={{
+              opacity: logoVisible ? 1 : 0,
+              visibility: logoVisible ? "visible" : "hidden",
+            }}
+          >
+            <Logo
+              href="/"
+              className={cn(
+                "transition-transform duration-300",
+                compact && "scale-[0.9] [&_span]:text-[18px]",
+              )}
+            />
+          </div>
 
           <ul
             className={cn(

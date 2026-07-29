@@ -29,7 +29,7 @@ export default function AboutPage() {
             <SectionBadge label={aboutContent.whoWeAreBadge} />
           </Reveal>
           <Reveal delay={0.06}>
-            <h2 className="mt-6 max-w-[760px] text-[32px] font-semibold leading-[1.15] tracking-[-0.03em] text-white sm:text-[40px] lg:text-[45px]">
+            <h2 className="font-display mt-6 max-w-[760px] text-[28px] font-normal leading-[1.15] tracking-[-0.03em] text-white sm:text-[36px] lg:text-[40px]">
               {aboutContent.whoWeAreTitle}
             </h2>
           </Reveal>
@@ -65,7 +65,7 @@ export default function AboutPage() {
             <SectionBadge label="Why Choose Us" />
           </Reveal>
           <Reveal delay={0.06}>
-            <h2 className="mt-6 max-w-[760px] text-[32px] font-semibold leading-[1.15] tracking-[-0.03em] text-white sm:text-[40px] lg:text-[45px]">
+            <h2 className="font-display mt-6 max-w-[760px] text-[28px] font-normal leading-[1.15] tracking-[-0.03em] text-white sm:text-[36px] lg:text-[40px]">
               {aboutContent.whyTitle}
             </h2>
           </Reveal>

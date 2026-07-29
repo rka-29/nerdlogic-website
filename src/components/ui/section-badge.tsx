@@ -17,8 +17,8 @@ export function SectionBadge({ label, className }: SectionBadgeProps) {
         className="relative inline-flex size-[11px] shrink-0"
         aria-hidden="true"
       >
-        <span className="absolute inset-0 rounded-full bg-[#0117FF]" />
-        <span className="absolute -inset-[3px] animate-pulse rounded-full bg-[#0117FF]/opacity-45 blur-[4px]" />
+        <span className="absolute inset-0 rounded-full bg-[var(--brand-primary)]" />
+        <span className="absolute -inset-[3px] animate-pulse rounded-full bg-[var(--brand-primary)]/45 blur-[4px]" />
       </span>
       <span className="text-[15px] font-medium tracking-wide text-white">
         {label}

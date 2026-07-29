@@ -16,7 +16,7 @@ export function Services() {
               <SectionBadge label="SERVICES" />
             </Reveal>
             <Reveal delay={0.06}>
-              <h2 className="mt-6 text-[32px] font-semibold leading-[1.15] tracking-[-0.03em] text-white sm:text-[40px] lg:text-[45px]">
+              <h2 className="font-display mt-6 text-[28px] font-normal leading-[1.15] tracking-[-0.03em] text-white sm:text-[36px] lg:text-[40px]">
                 A studio built to assemble your vision
               </h2>
             </Reveal>
@@ -48,30 +48,30 @@ export function Services() {
                 key={service.title}
                 data-stagger-item
                 tone="soft"
-                className="group flex h-full min-h-[380px] flex-col rounded-[70px] p-8 sm:min-h-[427px] sm:p-9"
+                className="group flex h-full min-h-[300px] flex-col rounded-[40px] p-7 sm:min-h-[320px] sm:rounded-[48px] sm:p-8"
               >
                 <div
-                  className="relative mb-8 inline-flex size-[93px] items-center justify-center rounded-full border border-white/10 bg-black/35 transition-transform duration-[250ms] group-hover:scale-[1.04]"
+                  className="relative mb-6 inline-flex size-[72px] items-center justify-center rounded-full border border-white/10 bg-black/35 transition-transform duration-[250ms] group-hover:scale-[1.04]"
                   aria-hidden="true"
                 >
-                  <span className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(1,23,255,0.35)]" />
-                  <span className="absolute -left-1 -top-1 size-10 rounded-full bg-[#0117FF]/25 blur-md" />
+                  <span className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,102,230,0.35)]" />
+                  <span className="absolute -left-1 -top-1 size-8 rounded-full bg-[var(--brand-primary)]/25 blur-md" />
                   <Icon
-                    className="relative z-10 size-8 text-white"
+                    className="relative z-10 size-7 text-white"
                     strokeWidth={1.5}
                   />
                 </div>
 
-                <h3 className="text-[23px] font-semibold tracking-[-0.02em] text-white">
+                <h3 className="font-display text-[20px] font-normal tracking-[-0.02em] text-white">
                   {service.title}
                 </h3>
-                <p className="mt-4 flex-1 text-[18px] leading-relaxed text-muted">
+                <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted sm:text-[16px]">
                   {service.description}
                 </p>
 
                 <Link
                   href={service.href}
-                  className="mt-8 inline-flex min-h-[44px] items-center gap-2 text-[18px] text-white transition-all duration-200 group-hover:gap-3"
+                  className="mt-6 inline-flex min-h-[44px] items-center gap-2 text-[15px] text-white transition-all duration-200 group-hover:gap-3 sm:text-[16px]"
                 >
                   Learn More
                   <ArrowUpRight className="size-4" aria-hidden="true" />

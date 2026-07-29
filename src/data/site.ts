@@ -19,12 +19,10 @@ export const navLinks = [
   { label: "Products", href: "/products" },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
-] as const;
-
-export const footerLinks = [
-  ...navLinks,
   { label: "Contact", href: "/contact" },
 ] as const;
+
+export const footerLinks = [...navLinks] as const;
 
 export type FeatureItem = {
   title: string;
@@ -41,7 +39,7 @@ export const features: FeatureItem[] = [
     glow: "blue",
   },
   {
-    title: "IOS - Native Excellence",
+    title: "iOS Native Excellence",
     description: "Dynamic Island & Live Activities",
     icon: Smartphone,
     glow: "cyan",

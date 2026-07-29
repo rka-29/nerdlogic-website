@@ -11,7 +11,7 @@ export function Process() {
           <SectionBadge label="Our Process" />
         </Reveal>
         <Reveal delay={0.06}>
-          <h2 className="mt-6 max-w-[760px] text-[32px] font-semibold leading-[1.15] tracking-[-0.03em] text-white sm:text-[40px] lg:text-[45px]">
+          <h2 className="font-display mt-6 max-w-[760px] text-[28px] font-normal leading-[1.15] tracking-[-0.03em] text-white sm:text-[36px] lg:text-[40px]">
             Three steps. One assembled system.
           </h2>
         </Reveal>
@@ -33,16 +33,16 @@ export function Process() {
               data-stagger-item
               className="flex flex-col items-center text-center"
             >
-              <div className="group relative flex size-[260px] items-center justify-center rounded-full border border-white/[0.09] bg-white/[0.045] shadow-[0_16px_48px_rgba(0,0,0,0.35)] transition-[transform,border-color,background-color] duration-[250ms] hover:-translate-y-1 hover:border-white/18 hover:bg-white/[0.07] sm:size-[320px] lg:size-[379px]">
-                <div className="absolute inset-[20px] rounded-full bg-black/25" />
-                <div className="relative z-10 max-w-[220px] px-6">
-                  <p className="text-[72px] font-semibold leading-none tracking-[-0.04em] text-white sm:text-[90px] lg:text-[100px]">
+              <div className="group relative flex size-[200px] items-center justify-center rounded-full border border-white/[0.09] bg-white/[0.045] shadow-[0_16px_48px_rgba(0,0,0,0.35)] transition-[transform,border-color,background-color] duration-[250ms] hover:-translate-y-1 hover:border-white/18 hover:bg-white/[0.07] sm:size-[240px] lg:size-[280px]">
+                <div className="absolute inset-[16px] rounded-full bg-black/25" />
+                <div className="relative z-10 max-w-[180px] px-5">
+                  <p className="font-display text-[48px] font-normal leading-none tracking-[-0.04em] text-white sm:text-[56px] lg:text-[64px]">
                     {step.number}
                   </p>
-                  <h3 className="mt-4 text-[20px] font-semibold text-white sm:text-[23px]">
+                  <h3 className="mt-3 text-[17px] font-semibold text-white sm:text-[19px]">
                     {step.title}
                   </h3>
-                  <p className="mt-3 text-[16px] leading-relaxed text-muted sm:text-[18px]">
+                  <p className="mt-2 text-[14px] leading-relaxed text-muted sm:text-[15px]">
                     {step.description}
                   </p>
                 </div>

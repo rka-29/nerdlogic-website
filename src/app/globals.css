@@ -155,6 +155,7 @@ h5,
 h6,
 .font-display {
   font-family: var(--font-display-family);
+  font-weight: 600;
 }
 
 ::selection {
@@ -197,22 +198,22 @@ button {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #003da5, #0066e6);
+  background: rgba(255, 255, 255, 0.18);
   border-radius: 999px;
-  border: 2px solid #050505;
+  border: 2px solid #000000;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #6bb6ff, #0066e6);
+  background: rgba(255, 255, 255, 0.28);
 }
 
 .glass-panel {
@@ -235,8 +236,8 @@ button {
 .section-glow {
   background: radial-gradient(
     ellipse at center,
-    rgba(25, 40, 221, 0.18) 0%,
-    rgba(1, 23, 255, 0.08) 35%,
+    rgba(0, 61, 165, 0.22) 0%,
+    rgba(0, 102, 230, 0.1) 35%,
     transparent 70%
   );
 }
@@ -252,7 +253,7 @@ button {
   align-items: center;
   padding: 0 0.85rem;
   color: rgba(255, 255, 255, 0.82);
-  font-size: 17px;
+  font-size: 15px;
   transition:
     color var(--duration-fast) var(--ease-out),
     transform var(--duration-fast) var(--ease-out);
@@ -302,19 +303,19 @@ button {
 }
 
 .mission-watermark {
-  color: #4b6cff;
+  color: var(--brand-primary);
   opacity: 0.42;
   text-shadow:
-    0 0 40px rgba(1, 23, 255, 0.35),
-    0 0 80px rgba(25, 40, 221, 0.25);
+    0 0 40px rgba(0, 102, 230, 0.35),
+    0 0 80px rgba(0, 61, 165, 0.28);
 }
 
 .mission-glow {
   border-radius: 999px;
   background: radial-gradient(
     ellipse at center,
-    rgba(75, 108, 255, 0.35) 0%,
-    rgba(1, 23, 255, 0.16) 40%,
+    rgba(107, 182, 255, 0.32) 0%,
+    rgba(0, 102, 230, 0.16) 40%,
     transparent 72%
   );
   filter: blur(8px);
@@ -328,9 +329,9 @@ button {
 }
 
 .mission-accent {
-  color: #b8d0ff;
+  color: var(--brand-light);
   text-shadow:
-    0 0 18px rgba(1, 23, 255, 0.65),
+    0 0 18px rgba(0, 102, 230, 0.65),
     0 1px 2px rgba(0, 0, 0, 0.8);
 }
 

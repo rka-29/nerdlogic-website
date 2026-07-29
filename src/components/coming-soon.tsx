@@ -2,17 +2,14 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
+import { BrandAtmosphere } from "@/components/brand-atmosphere";
 import { Logo } from "@/components/logo";
 import { SplashScreen } from "@/components/splash-screen";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
+import { HEADLINE_COLORS } from "@/lib/brand-atmosphere";
 import { cn } from "@/lib/utils";
 import "./coming-soon.css";
 
-const Aurora = dynamic(() => import("@/components/Aurora"), { ssr: false });
-// react-bits JSX components lack complete prop types — loosen for consumption
-const Particles = dynamic(() => import("@/components/Particles"), {
-  ssr: false,
-}) as unknown as React.ComponentType<Record<string, unknown>>;
 const GradientText = dynamic(() => import("@/components/GradientText"), {
   ssr: false,
 }) as unknown as React.ComponentType<Record<string, unknown>>;
@@ -26,10 +23,6 @@ const BlurText = dynamic(() => import("@/components/BlurText"), {
   ssr: false,
 }) as unknown as React.ComponentType<Record<string, unknown>>;
 
-const AURORA_STOPS = ["#0066E6", "#6BB6FF", "#003DA5"];
-const PARTICLE_COLORS = ["#FFFFFF", "#6BB6FF", "#0066E6", "#003DA5"];
-const HEADLINE_COLORS = ["#FFFFFF", "#6BB6FF", "#0066E6", "#003DA5"];
-
 export function ComingSoon() {
   const reducedMotion = usePrefersReducedMotion();
   const logoTargetRef = useRef<HTMLDivElement>(null);
@@ -40,13 +33,11 @@ export function ComingSoon() {
   useEffect(() => {
     const html = document.documentElement;
     const body = document.body;
-    const prevHtml = html.style.overflow;
-    const prevBody = body.style.overflow;
     html.style.overflow = "hidden";
     body.style.overflow = "hidden";
     return () => {
-      html.style.overflow = prevHtml;
-      body.style.overflow = prevBody;
+      html.style.removeProperty("overflow");
+      body.style.removeProperty("overflow");
     };
   }, []);
 
@@ -63,44 +54,15 @@ export function ComingSoon() {
         />
       ) : null}
 
-      {/* Wallpaper reveals as iris dissolves */}
       <div
         className={cn(
           "pointer-events-none absolute inset-0 transition-opacity duration-[900ms] ease-out",
           showScene ? "opacity-100" : "opacity-0",
         )}
-        aria-hidden="true"
       >
-        {showScene && !reducedMotion ? (
-          <>
-            <div className="absolute inset-0">
-              <Aurora
-                colorStops={AURORA_STOPS}
-                amplitude={1.2}
-                blend={0.6}
-                speed={0.7}
-              />
-            </div>
-            <div className="absolute inset-0 opacity-70">
-              <Particles
-                className="h-full w-full"
-                particleCount={160}
-                particleSpread={12}
-                speed={0.08}
-                particleColors={PARTICLE_COLORS}
-                alphaParticles
-                particleBaseSize={90}
-                sizeRandomness={0.9}
-                cameraDistance={22}
-                moveParticlesOnHover
-                particleHoverFactor={0.4}
-              />
-            </div>
-          </>
-        ) : showScene ? (
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(0,102,230,0.5),_transparent_55%),radial-gradient(ellipse_at_bottom_right,_rgba(0,61,165,0.45),_transparent_50%)]" />
+        {showScene ? (
+          <BrandAtmosphere variant="immersive" showParticles />
         ) : null}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/55" />
       </div>
 
       <div className="relative z-10 flex h-full flex-col">
@@ -109,7 +71,6 @@ export function ComingSoon() {
             ref={logoTargetRef}
             className="inline-flex"
             style={{
-              // Instant swap with splash lockup — no CSS fade (that caused the blink).
               opacity: logoLanded || splashDone ? 1 : 0,
               visibility: logoLanded || splashDone ? "visible" : "hidden",
             }}
@@ -142,7 +103,7 @@ export function ComingSoon() {
                   pauseBetweenAnimations={1.2}
                 />
               ) : (
-                <p className="text-[15px] font-medium tracking-wide text-[#6BB6FF]">
+                <p className="text-[15px] font-medium tracking-wide text-[var(--brand-light)]">
                   Building
                 </p>
               )}
@@ -161,7 +122,7 @@ export function ComingSoon() {
             <h1 className="font-display mt-2 w-full px-1 text-[clamp(2rem,6.2vw,3.75rem)] font-normal leading-[1.1] tracking-[-0.03em]">
               {showScene && !reducedMotion ? (
                 <GradientText
-                  colors={HEADLINE_COLORS}
+                  colors={[...HEADLINE_COLORS]}
                   animationSpeed={7}
                   direction="horizontal"
                   yoyo

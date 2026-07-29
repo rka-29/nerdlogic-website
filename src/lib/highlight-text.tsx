@@ -14,7 +14,7 @@ function highlightText(body: string, highlights: string[]) {
     );
     if (!isHighlight) return <span key={`${part}-${index}`}>{part}</span>;
     return (
-      <span key={`${part}-${index}`} className="text-[#9CBFFF]">
+      <span key={`${part}-${index}`} className="text-[#6BB6FF]">
         {part}
       </span>
     );

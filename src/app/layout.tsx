@@ -7,26 +7,12 @@ import { SiteShell } from "@/components/site-shell";
 import { isComingSoonActive } from "@/lib/coming-soon";
 import "./globals.css";
 
+/** Only SemiBold file is licensed/demo today — map honestly as 600. */
 const surgena = localFont({
   src: [
     {
       path: "../fonts/Surgena-SemiBold.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../fonts/Surgena-SemiBold.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../fonts/Surgena-SemiBold.ttf",
       weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../fonts/Surgena-SemiBold.ttf",
-      weight: "700",
       style: "normal",
     },
   ],
@@ -85,9 +71,9 @@ export default async function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${surgena.variable} ${monaSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${surgena.variable} ${monaSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="min-h-full bg-black text-white">
+      <body className="min-h-dvh bg-black text-white">
         <GoogleAnalytics />
         {comingSoon ? children : <SiteShell>{children}</SiteShell>}
         <Analytics />

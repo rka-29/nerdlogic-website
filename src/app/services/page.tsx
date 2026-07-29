@@ -24,7 +24,7 @@ export default function ServicesPage() {
             <SectionBadge label="What we do" />
           </Reveal>
           <Reveal delay={0.06}>
-            <h2 className="mt-6 max-w-[820px] text-[32px] font-semibold leading-[1.15] tracking-[-0.03em] text-white sm:text-[40px] lg:text-[45px]">
+            <h2 className="font-display mt-6 max-w-[820px] text-[28px] font-normal leading-[1.15] tracking-[-0.03em] text-white sm:text-[36px] lg:text-[40px]">
               Solutions Built Around Your Vision
             </h2>
           </Reveal>
@@ -58,8 +58,8 @@ export default function ServicesPage() {
                           className="relative inline-flex size-[72px] items-center justify-center rounded-full border border-white/10 bg-black/35"
                           aria-hidden="true"
                         >
-                          <span className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(1,23,255,0.4)]" />
-                          <span className="absolute -bottom-1 -left-1 size-10 rounded-full bg-[#0117FF]/30 blur-md" />
+                          <span className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,102,230,0.4)]" />
+                          <span className="absolute -bottom-1 -left-1 size-10 rounded-full bg-[#0066E6]/30 blur-md" />
                           <Icon
                             className="relative z-10 size-7 text-white"
                             strokeWidth={1.5}

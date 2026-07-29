@@ -13,11 +13,15 @@ type RevealProps = {
   as?: "div" | "span" | "li" | "article";
 };
 
+/**
+ * Scroll reveal — opacity + translate only.
+ * No CSS filter/blur (that caused blink/flicker while scrolling).
+ */
 export function Reveal({
   children,
   className,
   delay = 0,
-  y = 14,
+  y = 16,
   as: Tag = "div",
 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
@@ -33,25 +37,24 @@ export function Reveal({
       return;
     }
 
+    // Hide immediately so we never flash visible → invisible on trigger.
+    gsap.set(el, { autoAlpha: 0, y });
+
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        el,
-        { autoAlpha: 0, y },
-        {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.5,
-          delay,
-          ease: "power3.out",
-          immediateRender: false,
-          scrollTrigger: {
-            trigger: el,
-            start: "top 92%",
-            toggleActions: "play none none none",
-            once: true,
-          },
+      gsap.to(el, {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.45,
+        delay,
+        ease: "power2.out",
+        overwrite: "auto",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 92%",
+          toggleActions: "play none none none",
+          once: true,
         },
-      );
+      });
     }, el);
 
     return () => ctx.revert();
@@ -76,7 +79,7 @@ export function Stagger({
   children,
   className,
   selector = "[data-stagger-item]",
-  stagger = 0.07,
+  stagger = 0.06,
   y = 16,
 }: StaggerProps) {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -95,26 +98,24 @@ export function Stagger({
       return;
     }
 
+    gsap.set(items, { autoAlpha: 0, y, scale: 0.98 });
+
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        items,
-        { autoAlpha: 0, y, scale: 0.97 },
-        {
-          autoAlpha: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.48,
-          stagger: { each: stagger, from: "start" },
-          ease: "power3.out",
-          immediateRender: false,
-          scrollTrigger: {
-            trigger: root,
-            start: "top 88%",
-            toggleActions: "play none none none",
-            once: true,
-          },
+      gsap.to(items, {
+        autoAlpha: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.42,
+        stagger: { each: stagger, from: "start" },
+        ease: "power2.out",
+        overwrite: "auto",
+        scrollTrigger: {
+          trigger: root,
+          start: "top 90%",
+          toggleActions: "play none none none",
+          once: true,
         },
-      );
+      });
     }, root);
 
     return () => ctx.revert();

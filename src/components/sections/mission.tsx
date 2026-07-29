@@ -16,22 +16,49 @@ export function Mission() {
     if (!root || reducedMotion) return;
 
     const ctx = gsap.context(() => {
-      gsap.to("[data-mission='watermark']", {
-        opacity: 0.55,
-        duration: 3.5,
-        ease: "sine.inOut",
-        yoyo: true,
-        repeat: -1,
+      const watermark = root.querySelector("[data-mission='watermark']");
+      const glow = root.querySelector("[data-mission='glow']");
+
+      gsap.set(watermark, { autoAlpha: 0, scale: 0.96 });
+      gsap.set(glow, { autoAlpha: 0, scale: 0.92 });
+
+      const intro = gsap.timeline({
+        defaults: { ease: "power2.out" },
+        scrollTrigger: {
+          trigger: root,
+          start: "top 80%",
+          once: true,
+        },
       });
 
-      gsap.to("[data-mission='glow']", {
-        scale: 1.12,
-        opacity: 0.9,
-        duration: 4.5,
-        ease: "sine.inOut",
-        yoyo: true,
-        repeat: -1,
-      });
+      intro
+        .to(glow, { autoAlpha: 1, scale: 1, duration: 0.6 })
+        .to(
+          watermark,
+          {
+            autoAlpha: 0.42,
+            scale: 1,
+            duration: 0.7,
+          },
+          0.05,
+        )
+        .add(() => {
+          // Pulse scale only — don't fight autoAlpha with opacity (caused blink).
+          gsap.to(watermark, {
+            scale: 1.02,
+            duration: 3.5,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: -1,
+          });
+          gsap.to(glow, {
+            scale: 1.1,
+            duration: 4.5,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: -1,
+          });
+        });
     }, root);
 
     return () => ctx.revert();
@@ -49,21 +76,21 @@ export function Mission() {
       >
         <span
           data-mission="watermark"
-          className="mission-watermark select-none text-[64px] font-semibold tracking-[-0.04em] sm:text-[120px] lg:text-[220px]"
+          className="mission-watermark font-display select-none text-[48px] font-normal tracking-[-0.04em] sm:text-[96px] lg:text-[160px]"
         >
           NerdLogic
         </span>
         <div
           data-mission="glow"
-          className="mission-glow absolute left-1/2 top-1/2 h-[340px] w-[min(90vw,720px)] -translate-x-1/2 -translate-y-1/2"
+          className="mission-glow absolute left-1/2 top-1/2 h-[260px] w-[min(90vw,560px)] -translate-x-1/2 -translate-y-1/2"
         />
       </div>
 
       <Container className="relative z-10">
         <Reveal>
-          <h2 className="mission-headline mx-auto max-w-[760px] text-center text-[28px] font-semibold leading-[1.3] tracking-[-0.02em] sm:text-[34px] lg:text-[40px]">
+          <h2 className="mission-headline font-display mx-auto max-w-[760px] text-center text-[24px] font-normal leading-[1.3] tracking-[-0.02em] sm:text-[30px] lg:text-[36px]">
             We&apos;re NerdLogic. We build
-            <br className="hidden sm:block" /> softwares that work{" "}
+            <br className="hidden sm:block" /> software that works{" "}
             <span className="mission-accent">smarter.</span>
           </h2>
         </Reveal>
