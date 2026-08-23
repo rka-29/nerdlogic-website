@@ -39,11 +39,11 @@ export function PageHero({ watermark, title, className }: PageHeroProps) {
       gsap.set(titleEl, { autoAlpha: 0, y: 24 });
 
       const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
-      tl.to(glowEl, { autoAlpha: 1, scale: 1, duration: 0.65 }, 0)
+      tl.to(glowEl, { autoAlpha: 0, scale: 1, duration: 0.65 }, 0)
         .to(
           watermarkEl,
           {
-            autoAlpha: 1,
+            autoAlpha: 0.55,
             scale: 1,
             duration: 0.75,
           },
@@ -78,6 +78,7 @@ export function PageHero({ watermark, title, className }: PageHeroProps) {
         <span
           data-page-hero="watermark"
           className="mission-watermark font-display select-none text-[48px] font-normal tracking-[-0.04em] sm:text-[88px] lg:text-[140px]"
+          style={{ color: "#0117FF" }}
         >
           {watermark}
         </span>

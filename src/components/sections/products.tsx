@@ -50,7 +50,7 @@ export function Products() {
               key={product.name}
               data-stagger-item
               tone="soft"
-              className="rounded-[40px] p-7 sm:rounded-[48px] sm:p-8 lg:min-h-[280px] lg:p-10"
+              className="rounded-[32px] p-5 sm:rounded-[36px] sm:p-6 lg:min-h-[200px] lg:p-7"
             >
               <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
                 <div>
@@ -93,7 +93,7 @@ export function Products() {
                 </div>
 
                 <div
-                  className="aspect-[4/3] w-full rounded-[40px] border border-white/5 bg-gradient-to-br from-white/[0.08] to-white/[0.02] sm:aspect-[5/4] lg:aspect-auto lg:h-[255px]"
+                  className="aspect-[4/3] w-full rounded-[28px] border border-white/5 bg-gradient-to-br from-white/[0.08] to-white/[0.02] sm:aspect-[5/4] lg:aspect-auto lg:h-[170px]"
                   aria-hidden="true"
                 />
               </div>

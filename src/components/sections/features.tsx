@@ -17,7 +17,7 @@ type FeaturesProps = {
 
 export function Features({ showHeader = true }: FeaturesProps) {
   return (
-    <section className="relative overflow-hidden pb-20 pt-6 lg:pb-28">
+    <section className="relative overflow-hidden pb-16 pt-2 lg:pb-20">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute left-1/2 top-[10%] h-[280px] w-[520px] -translate-x-1/2 rounded-full bg-[var(--brand-primary)]/10 blur-[100px]" />
       </div>
@@ -43,7 +43,7 @@ export function Features({ showHeader = true }: FeaturesProps) {
                 key={feature.title}
                 data-stagger-item
                 tone="quiet"
-                className="rounded-[36px] p-6 sm:min-h-[180px] sm:rounded-[40px] sm:p-7"
+                className="rounded-[36px] bg-gradient-to-br from-black/70 via-black/50 to-[#0B1A4D]/60 p-6 sm:min-h-[180px] sm:rounded-[40px] sm:p-7"
               >
                 <div
                   className={cn(

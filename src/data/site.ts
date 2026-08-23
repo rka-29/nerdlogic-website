@@ -22,7 +22,13 @@ export const navLinks = [
   { label: "Contact", href: "/contact" },
 ] as const;
 
-export const footerLinks = [...navLinks] as const;
+export const footerLinks = [
+  { label: "Home", href: "/" },
+  { label: "Our Products", href: "/products" },
+  { label: "Our Services", href: "/services" },
+  { label: "About Us", href: "/about" },
+  { label: "Contact Us", href: "/contact" },
+] as const;
 
 export type FeatureItem = {
   title: string;

@@ -64,12 +64,12 @@ export function CTA({
 
         <div
           ref={shellRef}
-          className="cta-shell relative overflow-hidden px-6 py-14 text-center sm:px-10 sm:py-16 lg:px-16 lg:py-[52px]"
+          className="cta-shell relative overflow-hidden px-6 py-10 text-center sm:px-8 sm:py-12 lg:px-12 lg:py-10"
+          style={{
+            background:
+              "linear-gradient(135deg, #0117FF 0%, #0116F3 25%, #031671 65%, #04163D 100%)",
+          }}
         >
-          <div
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_30%,rgba(107, 182, 255,0.28),transparent_45%)]"
-            aria-hidden="true"
-          />
           <div className="relative z-10 mx-auto max-w-[820px]">
             <h2 className="font-display text-[32px] font-normal tracking-[-0.03em] text-white sm:text-[40px] lg:text-[45px]">
               {title}

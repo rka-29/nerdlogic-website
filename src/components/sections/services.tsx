@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
@@ -48,16 +50,16 @@ export function Services() {
                 key={service.title}
                 data-stagger-item
                 tone="soft"
-                className="group flex h-full min-h-[300px] flex-col rounded-[40px] p-7 sm:min-h-[320px] sm:rounded-[48px] sm:p-8"
+                className="group flex h-full min-h-[240px] flex-col rounded-[32px] p-6 sm:min-h-[260px] sm:rounded-[36px] sm:p-7"
               >
                 <div
-                  className="relative mb-6 inline-flex size-[72px] items-center justify-center rounded-full border border-white/10 bg-black/35 transition-transform duration-[250ms] group-hover:scale-[1.04]"
+                  className="relative mb-5 inline-flex size-[60px] items-center justify-center rounded-full bg-black/35 transition-transform duration-[250ms] group-hover:scale-[1.04]"
                   aria-hidden="true"
                 >
-                  <span className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,102,230,0.35)]" />
+                  <span className="service-icon-ring pointer-events-none absolute inset-0 rounded-full" />
                   <span className="absolute -left-1 -top-1 size-8 rounded-full bg-[var(--brand-primary)]/25 blur-md" />
                   <Icon
-                    className="relative z-10 size-7 text-white"
+                    className="relative z-10 size-6 text-white"
                     strokeWidth={1.5}
                   />
                 </div>
@@ -81,6 +83,25 @@ export function Services() {
           })}
         </Stagger>
       </Container>
+
+      <style jsx global>{`
+        .service-icon-ring {
+          padding: 2px;
+          background: conic-gradient(
+            from 200deg,
+            transparent 0deg,
+            transparent 200deg,
+            rgba(0, 102, 230, 0.5) 260deg,
+            #6bb6ff 300deg,
+            rgba(0, 102, 230, 0.5) 330deg,
+            transparent 360deg
+          );
+          -webkit-mask: linear-gradient(#000 0 0) content-box,
+            linear-gradient(#000 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+        }
+      `}</style>
     </section>
   );
 }

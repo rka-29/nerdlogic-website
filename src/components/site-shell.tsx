@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/sections/footer";
 import { SplashScreen } from "@/components/splash-screen";
+import { CustomCursor } from "@/components/custom-cursor";
 
 const BrandAtmosphere = dynamic(
   () =>
@@ -70,6 +71,8 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-black">
+      <CustomCursor />
+
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
@@ -84,9 +87,9 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         />
       ) : null}
 
-      <div className="pointer-events-none fixed inset-0 z-0">
-        <BrandAtmosphere variant="site" showParticles={showParticles} />
-      </div>
+      {/* تأثير Aurora العام معطّل — الهيرو صار عنده نمطه الخاص، وباقي الصفحة
+          تبقى سودا نظيفة بدون تلوين أزرق عام يشوش على الخلفية. */}
+      <div className="pointer-events-none fixed inset-0 z-0 bg-black" />
 
       <div
         className={`relative z-10 transition-opacity duration-700 ease-out ${

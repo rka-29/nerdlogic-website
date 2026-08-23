@@ -61,73 +61,81 @@ export function Navbar({
     <header
       className={cn(
         "pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center transition-[padding] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
-        compact ? "px-4 pt-3 sm:px-6 sm:pt-4" : "px-5 pt-4 sm:px-8 sm:pt-8 lg:px-12 lg:pt-10",
+        compact ? "px-4 pt-3 sm:px-5 sm:pt-3" : "px-5 pt-4 sm:px-6 sm:pt-6 lg:px-8 lg:pt-8",
       )}
     >
-      <div
-        className={cn(
-          "pointer-events-auto w-full transition-[max-width] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
-          compact ? "max-w-[920px]" : "max-w-[1258px]",
-        )}
-      >
+      <div className="pointer-events-auto transition-[max-width] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]">
         <nav
           aria-label="Primary"
           className={cn(
-            "glass-panel relative flex items-center justify-between rounded-full",
-            "transition-[height,padding,background-color,border-color,box-shadow] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
+            "glass-panel relative flex items-center rounded-full",
+            "transition-[height,padding,gap,background-color,border-color,box-shadow] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
             compact
-              ? "h-[52px] px-3 glass-panel-scrolled sm:px-5"
-              : "h-[70px] px-4 sm:px-6 lg:px-8",
+              ? "h-[44px] gap-6 px-3 glass-panel-scrolled sm:px-4"
+              : "h-[58px] gap-10 px-3 sm:px-5 lg:px-6",
           )}
         >
           <div
-            ref={logoTargetRef}
-            className="inline-flex"
-            style={{
-              opacity: logoVisible ? 1 : 0,
-              visibility: logoVisible ? "visible" : "hidden",
-            }}
-          >
-            <Logo
-              href="/"
-              className={cn(
-                "transition-transform duration-300",
-                compact && "scale-[0.9] [&_span]:text-[18px]",
-              )}
-            />
-          </div>
-
-          <ul
             className={cn(
-              "absolute left-1/2 hidden -translate-x-1/2 items-center lg:flex",
-              compact ? "gap-0" : "gap-1",
+              "flex items-center",
+              compact ? "gap-4" : "gap-8",
             )}
           >
-            {navLinks.map((link) => {
-              const active =
-                link.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(link.href);
+            <div
+              ref={logoTargetRef}
+              className="inline-flex shrink-0"
+              style={{
+                opacity: logoVisible ? 1 : 0,
+                visibility: logoVisible ? "visible" : "hidden",
+              }}
+            >
+              <Logo
+                href="/"
+                wordmarkClassName={cn(compact && "hidden")}
+                className={cn(
+                  "transition-transform duration-300",
+                  compact && "scale-[0.9] [&_span]:text-[18px]",
+                )}
+              />
+            </div>
 
-              return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={cn(
-                      "nav-link",
-                      compact && "nav-link-compact",
-                      active && "nav-link-active",
-                    )}
-                    aria-current={active ? "page" : undefined}
+            <ul
+              className={cn(
+                "hidden items-center lg:flex",
+                compact ? "gap-0" : "gap-1",
+              )}
+            >
+              {navLinks.map((link) => {
+                const active =
+                  link.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(link.href);
+                const hideOnCompact =
+                  link.label === "Home" || link.label === "About";
+
+                return (
+                  <li
+                    key={link.href}
+                    className={cn(hideOnCompact && compact && "hidden")}
                   >
-                    {link.label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "nav-link",
+                        compact && "nav-link-compact",
+                        active && "nav-link-active",
+                      )}
+                      aria-current={active ? "page" : undefined}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <Button
               href="/contact"
               variant="primary"
@@ -137,7 +145,7 @@ export function Navbar({
                 compact && "h-8 min-h-8 px-4 text-[14px]",
               )}
             >
-              Start a Project
+              {compact ? "Start" : "Start a Project"}
             </Button>
             <button
               type="button"
@@ -158,7 +166,7 @@ export function Navbar({
         <div
           id="mobile-nav"
           className={cn(
-            "mt-3 overflow-hidden rounded-[28px] border border-white/10 bg-black/94 backdrop-blur-xl transition-all duration-300 lg:hidden",
+            "mt-3 w-[min(92vw,380px)] overflow-hidden rounded-[28px] border border-white/10 bg-black/94 backdrop-blur-xl transition-all duration-300 lg:hidden",
             open
               ? "max-h-[420px] opacity-100"
               : "pointer-events-none max-h-0 border-transparent opacity-0",

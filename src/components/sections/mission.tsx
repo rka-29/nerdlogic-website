@@ -68,15 +68,20 @@ export function Mission() {
     <section
       ref={rootRef}
       id="about"
-      className="relative overflow-hidden py-16 lg:py-24"
+      className="relative overflow-hidden pb-20 pt-32 sm:pb-28 sm:pt-40 lg:pb-32 lg:pt-48"
     >
+      {/* الكلمة الكبيرة والنص فوقها يشتركون بنفس الحاوية (Flex + inset-0)
+          عشان يكونون متمركزين رأسياً بنفس النقطة بالضبط — النص يطلع
+          بمنتصف ارتفاع الكلمة تلقائياً، بدل ما يعتمد على تدفق الصفحة العادي. */}
       <div
         className="pointer-events-none absolute inset-0 flex items-center justify-center"
         aria-hidden="true"
       >
         <span
           data-mission="watermark"
-          className="mission-watermark font-display select-none text-[48px] font-normal tracking-[-0.04em] sm:text-[96px] lg:text-[160px]"
+          className="mission-watermark font-display
+           select-none text-[clamp(2.5rem,10vw,170px)] font-normal tracking-[0.06em] blur-[1.5px]"
+          style={{ color: "#0117FF" }}
         >
           NerdLogic
         </span>
@@ -86,15 +91,18 @@ export function Mission() {
         />
       </div>
 
-      <Container className="relative z-10">
-        <Reveal>
-          <h2 className="mission-headline font-display mx-auto max-w-[760px] text-center text-[24px] font-normal leading-[1.3] tracking-[-0.02em] sm:text-[30px] lg:text-[36px]">
-            We&apos;re NerdLogic. We build
-            <br className="hidden sm:block" /> software that works{" "}
-            <span className="mission-accent">smarter.</span>
-          </h2>
-        </Reveal>
-      </Container>
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        <Container className="relative z-10">
+          <Reveal>
+            <h2 className="mission-headline font-display pointer-events-auto mx-auto max-w-[680px] text-center text-[22px] font-normal leading-[1.3] tracking-[-0.02em] sm:text-[27px] lg:text-[32px]">
+              We&apos;re NerdLogic.{" "}
+              <span className="mission-accent">We build</span>
+              <br className="hidden sm:block" /> software that works{" "}
+              <span className="mission-accent">smarter.</span>
+            </h2>
+          </Reveal>
+        </Container>
+      </div>
     </section>
   );
 }

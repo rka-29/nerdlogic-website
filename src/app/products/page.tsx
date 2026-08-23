@@ -21,8 +21,8 @@ export default function ProductsPage() {
     <main>
       <PageHero watermark="Products" title="Products" />
 
-      <section className="relative pb-16 pt-4 lg:pb-24">
-        <Container>
+      <section className="relative overflow-hidden pb-16 pt-4 lg:pb-24">
+        <Container className="relative z-10">
           <Reveal>
             <SectionBadge label="What we  create" />
           </Reveal>
@@ -78,13 +78,31 @@ export default function ProductsPage() {
                   </p>
 
                   <div className="mt-6 flex justify-end">
-                    <Link
-                      href={product.href}
-                      aria-label={`Learn more about ${product.name}`}
-                      className="inline-flex size-12 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white shadow-[0_0_20px_rgba(0, 102, 230,0.35)] transition-transform duration-200 group-hover:scale-105"
-                    >
-                      <ArrowUpRight className="size-5" aria-hidden="true" />
-                    </Link>
+                    <div className="relative inline-flex size-12 transition-transform duration-200 group-hover:scale-105">
+                      {/* حلقة تدرج زرقاء حوالين الدائرة، بتقنية mask-composite */}
+                      <span
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-0 rounded-full"
+                        style={
+                          {
+                            padding: "2px",
+                            background:
+                              "conic-gradient(from 200deg, transparent 0deg, transparent 200deg, rgba(1,23,255,0.5) 260deg, #0117FF 300deg, rgba(1,23,255,0.5) 330deg, transparent 360deg)",
+                            WebkitMask:
+                              "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+                            WebkitMaskComposite: "xor",
+                            maskComposite: "exclude",
+                          } as React.CSSProperties
+                        }
+                      />
+                      <Link
+                        href={product.href}
+                        aria-label={`Learn more about ${product.name}`}
+                        className="relative inline-flex size-full items-center justify-center rounded-full bg-black/40 text-white"
+                      >
+                        <ArrowUpRight className="size-5" aria-hidden="true" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </SurfaceCard>
