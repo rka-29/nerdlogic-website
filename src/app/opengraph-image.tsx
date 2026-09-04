@@ -5,6 +5,7 @@ import { join } from "node:path";
 export const alt = "NerdLogic";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+export const dynamic = "force-static";
 
 const MARK_PATHS = [
   "M30.75 32.8 4.216 41.224 4.024 109.253c-.024 8.694 4.873 15.755 10.939 15.773L30.49 125.069Z",

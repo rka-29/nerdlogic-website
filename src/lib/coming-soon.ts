@@ -7,6 +7,8 @@ export function isComingSoonEnvEnabled() {
 
 export async function isComingSoonActive() {
   if (isComingSoonEnvEnabled()) return true;
+  // Static export (GitHub Pages) has no middleware/request headers to read.
+  if (process.env.GITHUB_PAGES === "true") return false;
   const headerStore = await headers();
   return headerStore.get("x-coming-soon") === "1";
 }
